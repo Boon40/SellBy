@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SellBy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles/cssandjs/mainPage.css">
+    <link th:href="@{/styles/cssandjs/mainPage.css}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+    <script src="../static/js/cssandjs/mainPage.js"></script>
+    <script th:src="@{/js/cssandjs/mainPage.js}"></script>
+    <script src="https://kit.fontawesome.com/e051e815bc.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+</head>
+<body>
+<nav>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+        <i class="fa fa-bars"></i>
+    </label>
+    <label class="nav-logo">SellBy</label>
+    <ul>
+        <li>
+            <a href="#">
+                <div class="nav-icon">
+                    <i class="fa fa-solid fa-message fa-2x" aria-hidden="true"></i>
+                    <i class="fa fa-solid fa-message fa-2x" aria-hidden="true"></i>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <div class="nav-icon">
+                    <i class="fa fa-solid fa-heart fa-2x" aria-hidden="true"></i>
+                    <i class="fa fa-solid fa-heart fa-2x" aria-hidden="true"></i>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <div class="nav-icon">
+                    <i class="fa fa-solid fa-cart-shopping fa-2x" aria-hidden="true"></i>
+                    <i class="fa fa-solid fa-cart-shopping fa-2x" aria-hidden="true"></i>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <div class="nav-icon">
+                    <i class="fa fa-solid fa-user fa-2x" aria-hidden="true"></i>
+                    <i class="fa fa-solid fa-user fa-2x" aria-hidden="true"></i>
+                </div>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<div class="box">
+    <div class="categories-box">
+        <span><a href="#">Art</a></span>
+        <span><a href="#">Baby</a></span>
+        <span><a href="#">Books</a></span>
+        <span><a href="#">Business & Industrial</a></span>
+        <span><a href="#">Cameras & Photos</a></span>
+        <span><a href="#">Electronics</a></span>
+        <span><a href="#">Clothing, Shoes & Accessories</a></span>
+        <span><a href="#">Home & Garden</a></span>
+        <span><a href="#">Jewelry & Watches</a></span>
+        <span><a href="#">Music, Musical instruments & Gear</a></span>
+        <span><a href="#">Pet Supplies</a></span>
+        <span><a href="#">Sporting Goods</a></span>
+        <span><a href="#">Toys & Hobbies</a></span>
+        <span><a href="#">Travel</a></span>
+        <span><a href="#">Video Games & Consoles</a></span>
+    </div>
+
+    <div class="product-box">
+        <div class="small-product-box">
+            <div class="product-row">
+                <div class="product-card">
+                    <i class="fa fa-solid fa-heart cart" aria-hidden="true"></i>
+                    <img src="../static/images/dog.jpg">
+                    <p class="title">Product title</p>
+                    <p class="price">100$</p>
+                </div>
+                <div class="product-card"></div>
+                <div class="product-card"></div>
+            </div>
+        </div>
+        <div class="small-product-box">
+            <div class="product-row">
+                <div class="product-card"></div>
+                <div class="product-card"></div>
+                <div class="product-card"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
