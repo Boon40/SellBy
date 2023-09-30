@@ -4,6 +4,7 @@ import com.sellby.sellby.models.User;
 import com.sellby.sellby.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -29,13 +30,17 @@ public class RegisterPageController {
             @RequestParam("email") String email,
             @RequestParam("number") String number,
             @RequestParam("password") String password,
-            @RequestParam("repeat_password") String repeatPassword
+            @RequestParam("repeat_password") String repeatPassword,
+            Model model
             ){
-
         if (password.equals(repeatPassword)){
-            userService.RegisterUser(email, number, firstName, lastName, password);
+            try{
+                userService.RegisterUser(email, number, firstName, lastName, password);
+            } catch(Exception e){
+                model.addAttribute("error", e.getMessage());
+                return "registerPage";
+            }
         }
-
         return "mainPage";
     }
 }

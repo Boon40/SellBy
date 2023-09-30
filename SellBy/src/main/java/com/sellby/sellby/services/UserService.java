@@ -6,6 +6,9 @@ import com.sellby.sellby.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class UserService {
     private final UserRepository userRepository;
@@ -17,10 +20,22 @@ public class UserService {
         this.passwordHasher = new PasswordHasher();
     }
 
-    public User RegisterUser(String email, String number, String first_name, String last_name, String password){
-        /* TODO check for already existing one */
+    public void RegisterUser(String email, String number, String first_name, String last_name, String password) throws Exception{
+        if (userRepository.findUserByEmail(email) != null){
+            System.out.println("throwing exception");
+            throw new Exception("Email already is use");
+        }
         User newUser = new User(email, number, first_name, last_name, passwordHasher.HashPassword(password));
-        return userRepository.save(newUser);
+        userRepository.save(newUser);
+    }
+
+    public void LoginUser(String email, String password) throws Exception{
+        User user = userRepository.findUserByEmail(email);
+        if (user != null && passwordHasher.CheckHash(user.GetPasswordHash(), password)){
+            /* TODO Login user*/
+            return;
+        }
+        throw new Exception("Wrong email and/or password");
     }
 
 }
