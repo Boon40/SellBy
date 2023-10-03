@@ -13,11 +13,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="CSS File" />
         <option value="HTML File" />
         <option value="Enum" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -114,7 +114,8 @@
       <workItem from="1696100976920" duration="1633000" />
       <workItem from="1696165307574" duration="390000" />
       <workItem from="1696180146818" duration="89000" />
-      <workItem from="1696354661758" duration="4074000" />
+      <workItem from="1696354661758" duration="10364000" />
+      <workItem from="1696365055169" duration="1010000" />
     </task>
     <servers />
   </component>

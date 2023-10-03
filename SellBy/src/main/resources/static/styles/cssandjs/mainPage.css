@@ -212,7 +212,7 @@ ul li a:hover .nav-icon .fa{
     margin: 5px;
 }
 
-.product-card p{
+.title{
     margin-left: 10px;
 }
 
@@ -220,4 +220,5 @@ ul li a:hover .nav-icon .fa{
     color: black;
     font-size: 15px;
     font-weight: bold;
+    margin-left: 10px;
 }

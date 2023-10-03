@@ -1,9 +1,8 @@
 package com.sellby.sellby.models;
 
-import com.sellby.sellby.services.ProductService;
 import jakarta.persistence.*;
-import lombok.Getter;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,6 +58,11 @@ public class Product {
 
     public float GetPrice(){
         return this.price;
+    }
+
+    public String GetPriceString(){
+        DecimalFormat df = new DecimalFormat("0.00");
+        return df.format(this.price) + "€";
     }
     public User GetSeller() {
         return this.seller;

@@ -80,21 +80,26 @@
     <div class="product-box">
         <div class="small-product-box">
             <div class="product-row">
-                <div class="product-card">
-                    <i class="fa fa-solid fa-heart cart" aria-hidden="true"></i>
-                    <img src="../static/images/dog.jpg">
-                    <p class="title">Product title</p>
-                    <p class="price">100$</p>
-                </div>
-                <div class="product-card"></div>
-                <div class="product-card"></div>
+                <tr th:each="top_row_product : ${top_row_products}">
+                    <div class="product-card">
+                        <i class="fa fa-solid fa-heart cart" aria-hidden="true"></i>
+                        <img th:src="@{'/images/' + ${top_row_product.GetPhotos().get(0).GetPath()} + '.jpg'}">
+                        <p class="title" th:text="${top_row_product.GetName()}"></p>
+                        <p class="price" th:text="${top_row_product.GetPriceString()}"></p>
+                    </div>
+                </tr>
             </div>
         </div>
         <div class="small-product-box">
             <div class="product-row">
-                <div class="product-card"></div>
-                <div class="product-card"></div>
-                <div class="product-card"></div>
+                <tr th:each="bottom_row_product : ${bottom_row_products}">
+                    <div class="product-card">
+                        <i class="fa fa-solid fa-heart cart" aria-hidden="true"></i>
+                        <img th:src="@{'/images/' + ${bottom_row_product.GetPhotos().get(0).GetPath()} + '.jpg'}">
+                        <p class="title" th:text="${bottom_row_product.GetName()}"></p>
+                        <p class="price" th:text="${bottom_row_product.GetPriceString()}"></p>
+                    </div>
+                </tr>
             </div>
         </div>
     </div>

@@ -1,7 +1,7 @@
 package com.sellby.sellby.repository;
 
 import com.sellby.sellby.models.Product;
-import com.sellby.sellby.models.User;
+import com.sellby.sellby.models.ProductPhoto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -9,7 +9,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ProductRepository extends JpaRepository<Product, Long> {
-    @Query("SELECT p FROM Product p LEFT JOIN ProductPhoto pp ON p = pp.product")
-    List<Product> GetAllProducts();
+public interface ProductPhotoRepository extends JpaRepository<ProductPhoto, Long> {
+
+    @Query("SELECT pp FROM ProductPhoto pp WHERE pp.product = ?1")
+    List<ProductPhoto> findAllPhotosOfProduct(Product product);
+
 }
