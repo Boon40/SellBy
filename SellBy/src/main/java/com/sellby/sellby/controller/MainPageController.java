@@ -19,8 +19,7 @@ public class MainPageController {
 
     @GetMapping("/")
     public String MainPage(Model model){
-        model.addAttribute("top_row_products", mainPageService.GetTopRowProducts());
-        model.addAttribute("bottom_row_products", mainPageService.GetBottomRowProducts());
+        model.addAttribute("last_6_products", mainPageService.GetLast6Products());
         return "mainPage";
     }
 }

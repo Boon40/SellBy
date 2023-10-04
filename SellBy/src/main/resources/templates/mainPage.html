@@ -80,24 +80,24 @@
     <div class="product-box">
         <div class="small-product-box">
             <div class="product-row">
-                <tr th:each="top_row_product : ${top_row_products}">
+                <tr th:each="currProduct, i : ${last_6_products}" th:if="${i.index < 3}">
                     <div class="product-card">
                         <i class="fa fa-solid fa-heart cart" aria-hidden="true"></i>
-                        <img th:src="@{'/images/' + ${top_row_product.GetPhotos().get(0).GetPath()} + '.jpg'}">
-                        <p class="title" th:text="${top_row_product.GetName()}"></p>
-                        <p class="price" th:text="${top_row_product.GetPriceString()}"></p>
+                        <img th:src="@{'/images/' + ${currProduct.GetPhotos().get(0).GetPath()} + '.jpg'}">
+                        <p class="title" th:text="${currProduct.GetName()}"></p>
+                        <p class="price" th:text="${currProduct.GetPriceString()}"></p>
                     </div>
                 </tr>
             </div>
         </div>
         <div class="small-product-box">
             <div class="product-row">
-                <tr th:each="bottom_row_product : ${bottom_row_products}">
+                <tr th:each="currProduct, i : ${last_6_products}" th:if="${i.index >= 3}">
                     <div class="product-card">
                         <i class="fa fa-solid fa-heart cart" aria-hidden="true"></i>
-                        <img th:src="@{'/images/' + ${bottom_row_product.GetPhotos().get(0).GetPath()} + '.jpg'}">
-                        <p class="title" th:text="${bottom_row_product.GetName()}"></p>
-                        <p class="price" th:text="${bottom_row_product.GetPriceString()}"></p>
+                        <img th:src="@{'/images/' + ${currProduct.GetPhotos().get(0).GetPath()} + '.jpg'}">
+                        <p class="title" th:text="${currProduct.GetName()}"></p>
+                        <p class="price" th:text="${currProduct.GetPriceString()}"></p>
                     </div>
                 </tr>
             </div>

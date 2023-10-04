@@ -17,22 +17,9 @@ public class MainPageService {
         this.productRepository = productRepository;
     }
 
-    public List<Product> GetTopRowProducts(){
-        List<Product> returnProducts = new ArrayList<>();
+    public List<Product> GetLast6Products(){
         List<Product> products = productRepository.GetAllProducts();
-        //TODO algorythm for last products
-        returnProducts.add(products.get(0));
-        returnProducts.add(products.get(1));
-        returnProducts.add(products.get(2));
-        return returnProducts;
+        return products.subList(products.size() - 6, products.size());
     }
 
-    public List<Product> GetBottomRowProducts(){
-        List<Product> returnProducts = new ArrayList<>();
-        List<Product> products = productRepository.GetAllProducts();
-        returnProducts.add(products.get(3));
-        returnProducts.add(products.get(4));
-        returnProducts.add(products.get(5));
-        return returnProducts;
-    }
 }
