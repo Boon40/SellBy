@@ -85,6 +85,10 @@ public class User {
         return this.favouriteProducts;
     }
 
+    public String GetNames(){
+        return this.first_name + " " + this.last_name;
+    }
+
     public void SetProducts(List<Product> products) {
         this.products = products;
     }

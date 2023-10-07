@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SellBy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles/cssandjs/productPage.css">
+    <link th:href="@{/styles/cssandjs/productPage.css}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+    <script src="../static/js/cssandjs/mainPage.js"></script>
+    <script th:src="@{/js/cssandjs/productPage.js}"></script>
+    <script src="https://kit.fontawesome.com/e051e815bc.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+</head>
+<body>
+<nav>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+        <i class="fa fa-bars"></i>
+    </label>
+    <label class="nav-logo">SellBy</label>
+    <ul>
+        <li>
+            <a href="#">
+                <div class="nav-icon">
+                    <i class="fa fa-solid fa-message fa-2x" aria-hidden="true"></i>
+                    <i class="fa fa-solid fa-message fa-2x" aria-hidden="true"></i>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <div class="nav-icon">
+                    <i class="fa fa-solid fa-heart fa-2x" aria-hidden="true"></i>
+                    <i class="fa fa-solid fa-heart fa-2x" aria-hidden="true"></i>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <div class="nav-icon">
+                    <i class="fa fa-solid fa-cart-shopping fa-2x" aria-hidden="true"></i>
+                    <i class="fa fa-solid fa-cart-shopping fa-2x" aria-hidden="true"></i>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="/login">
+                <div class="nav-icon">
+                    <i class="fa fa-solid fa-user fa-2x" aria-hidden="true"></i>
+                    <i class="fa fa-solid fa-user fa-2x" aria-hidden="true"></i>
+                </div>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<p class="title" th:text="${product.GetName()}"></p>
+
+<div class="main-box">
+    <div class="images-box">
+        <img class="main-image" th:src="@{'/images/' + ${product.GetPhotos().get(0).GetPath()}}">
+        <div class="small-images-box">
+            <div class="small-image" th:each="photo, i : ${product.GetPhotos()}" th:unless="${i.index == 0}">
+                <img th:src="@{'/images/' + ${photo.GetPath()}}">
+            </div>
+        </div>
+    </div>
+    <div class="product-details-box">
+        <p class="product-details" th:text="${product.GetDescription()}"></p>
+        <p class="product-state" th:text="'State: ' + ${product.GetState().ToString()}"></p>
+        <p class="product-category" th:text="'Category: ' + ${product.GetCategory().ToString()}"></p>
+        <p class="product-price" th:text="${product.GetPrice()}"></p>
+    </div>
+    <div class="seller-details-box">
+        <p class="seller-names" th:text="${product.GetSeller().GetNames()}"></p>
+        <p class="seller-email" th:text="${product.GetSeller().GetEmail()}"></p>
+        <p class="seller-number" th:text="${product.GetSeller().GetNumber()}"></p>
+    </div>
+</div>
+
+</body>
+</html>

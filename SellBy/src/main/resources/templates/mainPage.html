@@ -82,10 +82,12 @@
             <div class="product-row">
                 <tr th:each="currProduct, i : ${last_6_products}" th:if="${i.index < 3}">
                     <div class="product-card">
-                        <i class="fa fa-solid fa-heart cart" aria-hidden="true"></i>
-                        <img th:src="@{'/images/' + ${currProduct.GetPhotos().get(0).GetPath()} + '.jpg'}">
-                        <p class="title" th:text="${currProduct.GetName()}"></p>
-                        <p class="price" th:text="${currProduct.GetPriceString()}"></p>
+                        <a th:href="@{/product/{productId}(productId=${currProduct.GetId()})}">
+                            <i class="fa fa-solid fa-heart cart" aria-hidden="true"></i>
+                            <img th:src="@{'/images/' + ${currProduct.GetPhotos().get(0).GetPath()}}">
+                            <p class="title" th:text="${currProduct.GetName()}"></p>
+                            <p class="price" th:text="${currProduct.GetPriceString()}"></p>
+                        </a>
                     </div>
                 </tr>
             </div>
@@ -94,10 +96,12 @@
             <div class="product-row">
                 <tr th:each="currProduct, i : ${last_6_products}" th:if="${i.index >= 3}">
                     <div class="product-card">
-                        <i class="fa fa-solid fa-heart cart" aria-hidden="true"></i>
-                        <img th:src="@{'/images/' + ${currProduct.GetPhotos().get(0).GetPath()} + '.jpg'}">
-                        <p class="title" th:text="${currProduct.GetName()}"></p>
-                        <p class="price" th:text="${currProduct.GetPriceString()}"></p>
+                        <a th:href="@{/product/{productId}(productId=${currProduct.GetId()})}">
+                            <i class="fa fa-solid fa-heart cart" aria-hidden="true"></i>
+                            <img th:src="@{'/images/' + ${currProduct.GetPhotos().get(0).GetPath()}}">
+                            <p class="title" th:text="${currProduct.GetName()}"></p>
+                            <p class="price" th:text="${currProduct.GetPriceString()}"></p>
+                        </a>
                     </div>
                 </tr>
             </div>

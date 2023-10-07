@@ -12,4 +12,7 @@ import java.util.List;
 public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query("SELECT p FROM Product p LEFT JOIN ProductPhoto pp ON p = pp.product")
     List<Product> GetAllProducts();
+
+    @Query("SELECT p FROM Product p WHERE p.id = ?1")
+    Product GetProductById(int id);
 }

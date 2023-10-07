@@ -29,7 +29,7 @@ public class Category {
         return this.id;
     }
 
-    public CategoryEnum GetCategory(){
-        return this.category;
+    public String ToString(){
+        return this.category.toString();
     }
 }

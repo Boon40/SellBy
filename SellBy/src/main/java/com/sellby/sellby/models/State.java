@@ -27,7 +27,7 @@ public class State {
         return this.id;
     }
 
-    public StateEnum GetState(){
-        return this.state;
+    public String ToString(){
+        return this.state.toString();
     }
 }
