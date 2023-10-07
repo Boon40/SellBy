@@ -57,8 +57,6 @@
     </ul>
 </nav>
 
-<p class="title" th:text="${product.GetName()}"></p>
-
 <div class="main-box">
     <div class="images-box">
         <img class="main-image" th:src="@{'/images/' + ${product.GetPhotos().get(0).GetPath()}}">
@@ -68,16 +66,20 @@
             </div>
         </div>
     </div>
-    <div class="product-details-box">
-        <p class="product-details" th:text="${product.GetDescription()}"></p>
-        <p class="product-state" th:text="'State: ' + ${product.GetState().ToString()}"></p>
-        <p class="product-category" th:text="'Category: ' + ${product.GetCategory().ToString()}"></p>
-        <p class="product-price" th:text="${product.GetPrice()}"></p>
-    </div>
-    <div class="seller-details-box">
-        <p class="seller-names" th:text="${product.GetSeller().GetNames()}"></p>
-        <p class="seller-email" th:text="${product.GetSeller().GetEmail()}"></p>
-        <p class="seller-number" th:text="${product.GetSeller().GetNumber()}"></p>
+    <div class="details-box">
+        <div class="product-details-box">
+            <p class="product-title" th:text="${product.GetName()}"></p>
+            <p class="product-details" th:text="${product.GetDescription()}"></p>
+            <p class="product-state" th:text="'State: ' + ${product.GetState().ToString()}"></p>
+            <p class="product-price" th:text="${product.GetPrice()}"></p>
+            <p class="delivery-details">buyer pays delivery</p>
+            <p class="delivery-location">Location: Eindhoven</p>
+        </div>
+        <div class="seller-details-box">
+            <p class="seller-names" th:text="${product.GetSeller().GetNames()}"></p>
+            <p class="seller-email" th:text="${product.GetSeller().GetEmail()}"></p>
+            <p class="seller-number" th:text="${product.GetSeller().GetNumber()}"></p>
+        </div>
     </div>
 </div>
 

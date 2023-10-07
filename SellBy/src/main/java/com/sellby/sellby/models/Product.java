@@ -28,6 +28,8 @@ public class Product {
     @JoinColumn(name = "category_id")
     private Category category;
 
+    //TODO isBuyerPayingDelivery (boolean) and location (String)
+
     public Product(){}
 
     public Product(String name, String description, float price, User seller, State state, Category category ) {
