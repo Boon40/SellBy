@@ -15,6 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 </head>
 <body>
+<!-- NAVIGATION BAR -->
 <nav>
     <input type="checkbox" id="check">
     <label for="check" class="checkbtn">
@@ -56,8 +57,9 @@
         </li>
     </ul>
 </nav>
-
+<!-- MAIN BOX (photos and 2 details boxes) -->
 <div class="main-box">
+    <!-- PHOTOS BOX -->
     <div class="images-box">
         <!-- TODO add image slider -->
         <img class="main-image" th:src="@{'/images/' + ${product.GetPhotos().get(0).GetPath()}}">
@@ -67,11 +69,13 @@
             </div>
         </div>
     </div>
+    <!-- PRODUCT DETAILS BOX -->
     <div class="details-box">
         <div class="product-title">
             <p th:text="${product.GetName()}"></p>
         </div>
         <div class="product-details-box">
+            <p class="date" th:text="'Posted on ' + ${product.GetCreatedDate()}"></p>
             <p class="product-details" th:text="${product.GetDescription()}"></p>
             <div class="product-state">
                 <p th:text="'State: ' + ${product.GetState().ToString()}"></p>
@@ -89,11 +93,77 @@
                 <p th:text="'Seller location: ' + ${product.GetSeller().GetCityAndCountry()}"></p>
             </div>
         </div>
-        <!-- TODO finish the seller box and add rating -->
+        <!-- CONTACT BOX -->
         <div class="seller-details-box">
-            <p class="seller-names" th:text="${product.GetSeller().GetNames()}"></p>
-            <p class="seller-email" th:text="${product.GetSeller().GetEmail()}"></p>
-            <p class="seller-number" th:text="${product.GetSeller().GetNumber()}"></p>
+            <div class="seller-names-box">
+                <p class="seller-names" th:text="${product.GetSeller().GetNames()}">
+                <p class="date" th:text="'Active on SellBy since ' + ${product.GetSeller().GetCreatedDate()}">
+            </div>
+            <div class="seller-rating-box" th:if="${sellerRating == -1}">
+                <p class="no-rating-text">
+                    The user doesn't have any comments yet
+                </p>
+            </div>
+            <div class="seller-rating-box" th:if="${sellerRating != -1}">
+                <div class="star">
+                    <i class="fa-solid fa-star fa-2xl"></i>
+                </div>
+                <div class="star">
+                    <span th:if="${sellerRating < 1.25}">
+                        <i class="far fa-star fa-2xl"></i>
+                    </span>
+                    <span th:if="${sellerRating >= 1.25 and  sellerRating < 1.75}">
+                        <i class="fas fa-star-half-alt fa-2xl"></i>
+                    </span>
+                    <span th:if="${sellerRating >= 1.75}">
+                        <i class="fas fa-star fa-2xl"></i>
+                    </span>
+                </div>
+                <div class="star">
+                    <span th:if="${sellerRating < 2.25}">
+                        <i class="far fa-star fa-2xl"></i>
+                    </span>
+                    <span th:if="${sellerRating >= 2.25 and  sellerRating < 2.75}">
+                        <i class="fas fa-star-half-alt fa-2xl"></i>
+                    </span>
+                    <span th:if="${sellerRating >= 2.75}">
+                        <i class="fas fa-star fa-2xl"></i>
+                    </span>
+                </div>
+                <div class="star">
+                    <span th:if="${sellerRating < 3.25}">
+                        <i class="far fa-star fa-2xl"></i>
+                    </span>
+                    <span th:if="${sellerRating >= 3.25 and  sellerRating < 3.75}">
+                        <i class="fas fa-star-half-alt fa-2xl"></i>
+                    </span>
+                    <span th:if="${sellerRating >= 3.75}">
+                        <i class="fas fa-star fa-2xl"></i>
+                    </span>
+                </div>
+                <div class="star">
+                    <span th:if="${sellerRating < 4.25}">
+                        <i class="far fa-star fa-2xl"></i>
+                    </span>
+                    <span th:if="${sellerRating >= 4.25 and  sellerRating < 4.75}">
+                        <i class="fas fa-star-half-alt fa-2xl"></i>
+                    </span>
+                    <span th:if="${sellerRating >= 4.75}">
+                        <i class="fas fa-star fa-2xl"></i>
+                    </span>
+                </div>
+                <!-- TODO CREATE USER PROFILE PAGE AND REDIRECT THERE -->
+                <a href="#" th:text="${commentsCount} + ' comments'"></a>
+            </div>
+            <div class="contact-box">
+                <div class="seller-email">
+                    <p th:text="${product.GetSeller().GetEmail()}"></p>
+                </div>
+                <div class="seller-phone">
+                    <p th:text="${product.GetSeller().GetNumber()}"></p>
+                </div>
+            </div>
+            </p>
         </div>
     </div>
 </div>

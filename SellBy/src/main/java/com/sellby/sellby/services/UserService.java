@@ -6,6 +6,7 @@ import com.sellby.sellby.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,7 +26,7 @@ public class UserService {
             System.out.println("throwing exception");
             throw new Exception("Email already is use");
         }
-        User newUser = new User(email, number, first_name, last_name, passwordHasher.HashPassword(password), country, city);
+        User newUser = new User(email, number, first_name, last_name, passwordHasher.HashPassword(password), country, city, LocalDate.now());
         userRepository.save(newUser);
     }
 

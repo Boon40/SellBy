@@ -3,7 +3,10 @@ package com.sellby.sellby.models;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -31,10 +34,11 @@ public class User {
     private List<Product> favouriteProducts = new ArrayList<>();
     private String country;
     private String city;
+    private LocalDate createdDate;
 
     public User(){}
 
-    public User(int id, String email, String number, String first_name, String last_name, String password_hash, String country, String city) {
+    public User(int id, String email, String number, String first_name, String last_name, String password_hash, String country, String city, LocalDate createdDate) {
         this.id = id;
         this.email = email;
         this.number = number;
@@ -43,19 +47,20 @@ public class User {
         this.password_hash = password_hash;
         this.country = country;
         this.city = city;
+        this.createdDate = createdDate;
     }
 
-    public User(String email, String number, String first_name, String last_name, String password_hash, String country, String city) {
+    public User(String email, String number, String first_name, String last_name, String password_hash, String country, String city, LocalDate createdDate) {
         this.email = email;
         this.number = number;
         this.first_name = first_name;
         this.last_name = last_name;
         this.password_hash = password_hash;
         this.country = country;
+        this.createdDate = createdDate;
     }
 
-    //TODO date when created
-
+    // GETTERS
     public String GetEmail(){
         return this.email;
     }
@@ -108,6 +113,12 @@ public class User {
         return this.city + ',' + ' ' + this.country;
     }
 
+    public String GetCreatedDate(){
+        DateTimeFormatter f = DateTimeFormatter.ofPattern("dd MMMM, yyyy");
+        return this.createdDate.format(f);
+    }
+
+    // SETTERS
     public void SetProducts(List<Product> products) {
         this.products = products;
     }

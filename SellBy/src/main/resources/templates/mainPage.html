@@ -16,6 +16,7 @@
 
 </head>
 <body>
+<!-- NAVIGATION BAR -->
 <nav>
     <input type="checkbox" id="check">
     <label for="check" class="checkbtn">
@@ -57,8 +58,10 @@
         </li>
     </ul>
 </nav>
-
+<!-- MAIN BOX (categories and product boxes) -->
 <div class="box">
+    <!-- CATEGORIES BOX -->
+    <!-- TODO create a category page and redirect there -->
     <div class="categories-box">
         <span><a href="#">Art</a></span>
         <span><a href="#">Baby</a></span>
@@ -76,8 +79,9 @@
         <span><a href="#">Travel</a></span>
         <span><a href="#">Video Games & Consoles</a></span>
     </div>
-
+    <!-- 2 PRODUCT BOXES -->
     <div class="product-box">
+        <!-- FIRST ROW OF PRODUCTS -->
         <div class="small-product-box">
             <div class="product-row">
                 <tr th:each="currProduct, i : ${last_6_products}" th:if="${i.index < 3}">
@@ -92,6 +96,7 @@
                 </tr>
             </div>
         </div>
+        <!-- SECOND ROW OF PRODUCTS -->
         <div class="small-product-box">
             <div class="product-row">
                 <tr th:each="currProduct, i : ${last_6_products}" th:if="${i.index >= 3}">
