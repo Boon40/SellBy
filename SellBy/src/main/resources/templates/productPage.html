@@ -20,7 +20,7 @@
     <label for="check" class="checkbtn">
         <i class="fa fa-bars"></i>
     </label>
-    <label class="nav-logo">SellBy</label>
+    <a class="title" href="/">SellBy</a>
     <ul>
         <li>
             <a href="#">
@@ -59,6 +59,7 @@
 
 <div class="main-box">
     <div class="images-box">
+        <!-- TODO add image slider -->
         <img class="main-image" th:src="@{'/images/' + ${product.GetPhotos().get(0).GetPath()}}">
         <div class="small-images-box">
             <div class="small-image" th:each="photo, i : ${product.GetPhotos()}" th:unless="${i.index == 0}">
@@ -67,14 +68,28 @@
         </div>
     </div>
     <div class="details-box">
-        <div class="product-details-box">
-            <p class="product-title" th:text="${product.GetName()}"></p>
-            <p class="product-details" th:text="${product.GetDescription()}"></p>
-            <p class="product-state" th:text="'State: ' + ${product.GetState().ToString()}"></p>
-            <p class="product-price" th:text="${product.GetPrice()}"></p>
-            <p class="delivery-details">buyer pays delivery</p>
-            <p class="delivery-location">Location: Eindhoven</p>
+        <div class="product-title">
+            <p th:text="${product.GetName()}"></p>
         </div>
+        <div class="product-details-box">
+            <p class="product-details" th:text="${product.GetDescription()}"></p>
+            <div class="product-state">
+                <p th:text="'State: ' + ${product.GetState().ToString()}"></p>
+            </div>
+            <div class="product-price">
+                <p th:text="'Price:' + ${product.GetPrice()}"></p>
+            </div>
+            <div class="delivery-details">
+                <p>
+                    <span th:if="${product.GetIsBuyerPayingDelivery()}">Buyer pays delivery</span>
+                    <span th:unless="${product.GetIsBuyerPayingDelivery()}">Seller pays delivery</span>
+                </p>
+            </div>
+            <div class="delivery-location">
+                <p th:text="'Seller location: ' + ${product.GetSeller().GetCityAndCountry()}"></p>
+            </div>
+        </div>
+        <!-- TODO finish the seller box and add rating -->
         <div class="seller-details-box">
             <p class="seller-names" th:text="${product.GetSeller().GetNames()}"></p>
             <p class="seller-email" th:text="${product.GetSeller().GetEmail()}"></p>

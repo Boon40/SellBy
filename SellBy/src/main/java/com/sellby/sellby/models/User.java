@@ -29,25 +29,32 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "product_id")
     )
     private List<Product> favouriteProducts = new ArrayList<>();
+    private String country;
+    private String city;
 
     public User(){}
 
-    public User(int id, String email, String number, String first_name, String last_name, String password_hash) {
+    public User(int id, String email, String number, String first_name, String last_name, String password_hash, String country, String city) {
         this.id = id;
         this.email = email;
         this.number = number;
         this.first_name = first_name;
         this.last_name = last_name;
         this.password_hash = password_hash;
+        this.country = country;
+        this.city = city;
     }
 
-    public User(String email, String number, String first_name, String last_name, String password_hash) {
+    public User(String email, String number, String first_name, String last_name, String password_hash, String country, String city) {
         this.email = email;
         this.number = number;
         this.first_name = first_name;
         this.last_name = last_name;
         this.password_hash = password_hash;
+        this.country = country;
     }
+
+    //TODO date when created
 
     public String GetEmail(){
         return this.email;
@@ -87,6 +94,18 @@ public class User {
 
     public String GetNames(){
         return this.first_name + " " + this.last_name;
+    }
+
+    public String GetCountry(){
+        return this.country;
+    }
+
+    public String GetCity(){
+        return this.city;
+    }
+
+    public String GetCityAndCountry(){
+        return this.city + ',' + ' ' + this.country;
     }
 
     public void SetProducts(List<Product> products) {

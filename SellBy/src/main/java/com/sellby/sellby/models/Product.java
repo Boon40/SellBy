@@ -12,6 +12,8 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+    @Column(length = 1000)
+    @Lob
     private String description;
     private float price;
     @ManyToOne
@@ -27,12 +29,13 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
+    private boolean isBuyerPayingDelivery;
 
-    //TODO isBuyerPayingDelivery (boolean) and location (String)
+    //TODO date
 
     public Product(){}
 
-    public Product(String name, String description, float price, User seller, State state, Category category ) {
+    public Product(String name, String description, float price, User seller, State state, Category category, boolean isBuyerPayingDelivery ) {
         this.name = name;
         this.description = description;
         this.price = price;
@@ -40,8 +43,9 @@ public class Product {
         this.state = state;
         this.photos = photos;
         this.category = category;
+        this.isBuyerPayingDelivery = isBuyerPayingDelivery;
     }
-    public Product(int id, String name, String description, float price, User seller, State state, Category category ) {
+    public Product(int id, String name, String description, float price, User seller, State state, Category category, boolean isBuyerPayingDelivery ) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -50,6 +54,7 @@ public class Product {
         this.state = state;
         this.photos = photos;
         this.category = category;
+        this.isBuyerPayingDelivery = isBuyerPayingDelivery;
     }
 
     public int GetId(){
@@ -86,6 +91,10 @@ public class Product {
 
     public Category GetCategory(){
         return this.category;
+    }
+
+    public boolean GetIsBuyerPayingDelivery(){
+        return this.isBuyerPayingDelivery;
     }
 
     public void SetPhotos(List<ProductPhoto> photos) {

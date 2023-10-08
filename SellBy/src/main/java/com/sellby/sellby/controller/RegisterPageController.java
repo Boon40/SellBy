@@ -31,15 +31,21 @@ public class RegisterPageController {
             @RequestParam("number") String number,
             @RequestParam("password") String password,
             @RequestParam("repeat_password") String repeatPassword,
+            @RequestParam("country") String country,
+            @RequestParam("city") String city,
             Model model
             ){
         if (password.equals(repeatPassword)){
             try{
-                userService.RegisterUser(email, number, firstName, lastName, password);
+                userService.RegisterUser(email, number, firstName, lastName, password, country, city);
             } catch(Exception e){
                 model.addAttribute("error", e.getMessage());
                 return "registerPage";
             }
+        }
+        else{
+            model.addAttribute("error", "Passwords doesn't match");
+            return "registerPage";
         }
         return "mainPage";
     }
