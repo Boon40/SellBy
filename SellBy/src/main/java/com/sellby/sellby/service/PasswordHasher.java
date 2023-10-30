@@ -1,4 +1,4 @@
-package com.sellby.sellby.services;
+package com.sellby.sellby.service;
 
 import org.mindrot.jbcrypt.BCrypt;
 

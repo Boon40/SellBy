@@ -1,6 +1,6 @@
 package com.sellby.sellby.controller;
 
-import com.sellby.sellby.services.UserService;
+import com.sellby.sellby.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

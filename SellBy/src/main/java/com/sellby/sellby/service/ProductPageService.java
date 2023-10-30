@@ -1,15 +1,15 @@
-package com.sellby.sellby.services;
+package com.sellby.sellby.service;
 
 
-import com.sellby.sellby.models.Comment;
-import com.sellby.sellby.models.Product;
-import com.sellby.sellby.models.User;
+import com.sellby.sellby.mapper.ProductMapper;
+import com.sellby.sellby.model.entity.Comment;
+import com.sellby.sellby.model.entity.Product;
+import com.sellby.sellby.model.entity.User;
 import com.sellby.sellby.repository.CommentRepository;
 import com.sellby.sellby.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.text.DecimalFormat;
 import java.util.List;
 
 @Service

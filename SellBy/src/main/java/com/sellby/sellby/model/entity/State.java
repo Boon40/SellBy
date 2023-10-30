@@ -1,5 +1,6 @@
-package com.sellby.sellby.models;
+package com.sellby.sellby.model.entity;
 
+import com.sellby.sellby.model.enums.StateEnum;
 import jakarta.persistence.*;
 
 @Entity

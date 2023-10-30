@@ -1,12 +1,12 @@
-package com.sellby.sellby.models;
+package com.sellby.sellby.model.entity;
 
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -14,6 +14,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String email;
     private String number;
     private String first_name;
@@ -34,11 +35,11 @@ public class User {
     private List<Product> favouriteProducts = new ArrayList<>();
     private String country;
     private String city;
-    private LocalDate createdDate;
+    private String createdDate;
 
     public User(){}
 
-    public User(int id, String email, String number, String first_name, String last_name, String password_hash, String country, String city, LocalDate createdDate) {
+    public User(int id, String email, String number, String first_name, String last_name, String password_hash, String country, String city, String createdDate) {
         this.id = id;
         this.email = email;
         this.number = number;
@@ -50,7 +51,7 @@ public class User {
         this.createdDate = createdDate;
     }
 
-    public User(String email, String number, String first_name, String last_name, String password_hash, String country, String city, LocalDate createdDate) {
+    public User(String email, String number, String first_name, String last_name, String password_hash, String country, String city, String createdDate) {
         this.email = email;
         this.number = number;
         this.first_name = first_name;
@@ -61,6 +62,10 @@ public class User {
     }
 
     // GETTERS
+
+    public int GetId(){
+        return this.id;
+    }
     public String GetEmail(){
         return this.email;
     }
@@ -114,8 +119,9 @@ public class User {
     }
 
     public String GetCreatedDate(){
-        DateTimeFormatter f = DateTimeFormatter.ofPattern("dd MMMM, yyyy");
-        return this.createdDate.format(f);
+        return this.createdDate;
+        /*DateTimeFormatter f = DateTimeFormatter.ofPattern("dd MMMM, yyyy");
+        return this.createdDate.format(f);*/
     }
 
     // SETTERS

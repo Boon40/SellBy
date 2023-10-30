@@ -1,11 +1,10 @@
-package com.sellby.sellby.services;
+package com.sellby.sellby.service;
 
-import com.sellby.sellby.models.Product;
+import com.sellby.sellby.model.entity.Product;
 import com.sellby.sellby.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

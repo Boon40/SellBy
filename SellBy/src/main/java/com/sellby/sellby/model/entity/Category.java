@@ -1,8 +1,7 @@
-package com.sellby.sellby.models;
+package com.sellby.sellby.model.entity;
 
+import com.sellby.sellby.model.enums.CategoryEnum;
 import jakarta.persistence.*;
-
-import java.util.List;
 
 @Entity
 public class Category {

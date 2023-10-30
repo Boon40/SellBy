@@ -1,15 +1,44 @@
-package com.sellby.sellby.config;
+/*package com.sellby.sellby.config;
 
+import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
+import org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.core.annotation.Order;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+import java.net.URLEncoder;
+
+@EnableOAuth2Sso
 @Configuration
-public class AppConfig implements WebMvcConfigurer {
+@Order(value = 0)
+public class AppConfig extends WebSecurityConfigurerAdapter {
+
     @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/**")
-                .addResourceLocations("classpath:/static/")
-                .setCachePeriod(0);
+    public void configure(HttpSecurity http) throws Exception {
+        http.antMatcher("/**")
+                .authorizeRequests()
+                .antMatchers("/api/v1/**")  // TODO: Remove when authentication is added
+                .permitAll()
+                .antMatchers("/", "/login**", "/error**")
+                .permitAll()
+                .anyRequest()
+                .authenticated()
+                .and()
+                .logout()
+                .deleteCookies()
+                .invalidateHttpSession(true)
+                .and()
+                .csrf().ignoringAntMatchers("/api/v1/**");   // TODO: Remove when authentication is added
     }
-}
+
+    @Bean
+    public ResourceServerProperties resourceServerProperties() {
+        // Create and configure the ResourceServerProperties bean
+        ResourceServerProperties properties = new ResourceServerProperties();
+        properties.setTokenInfoUri("your-token-info-uri"); // Set your token info URI
+
+        return properties;
+    }
+}*/

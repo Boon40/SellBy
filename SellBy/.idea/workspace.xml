@@ -43,36 +43,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/mm/Desktop/sem3/SellBy/SellBy/src/main/resources/static&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/mm/Desktop/sem3/SellBy/SellBy/src",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mm\Desktop\sem3\SellBy\SellBy\src" />
       <recent name="C:\Users\mm\Desktop\sem3\SellBy\SellBy\src\main\resources\static" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mm\Desktop\sem3\SellBy\SellBy" />
       <recent name="C:\Users\mm\Desktop\sem3\SellBy\SellBy\src\main\resources\static\images" />
     </key>
   </component>
@@ -121,7 +123,16 @@
       <workItem from="1696707265312" duration="3855000" />
       <workItem from="1696721279212" duration="2315000" />
       <workItem from="1696723612676" duration="4556000" />
-      <workItem from="1696794992509" duration="8912000" />
+      <workItem from="1696794992509" duration="10753000" />
+      <workItem from="1696835826410" duration="1901000" />
+      <workItem from="1696944431828" duration="5694000" />
+      <workItem from="1697016554062" duration="2288000" />
+      <workItem from="1698152441934" duration="19000" />
+      <workItem from="1698170693833" duration="9526000" />
+      <workItem from="1698258633138" duration="1288000" />
+      <workItem from="1698676988431" duration="2045000" />
+      <workItem from="1698679045044" duration="2065000" />
+      <workItem from="1698681128590" duration="12157000" />
     </task>
     <servers />
   </component>

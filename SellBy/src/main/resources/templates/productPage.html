@@ -75,7 +75,7 @@
             <p th:text="${product.GetName()}"></p>
         </div>
         <div class="product-details-box">
-            <p class="date" th:text="'Posted on ' + ${product.GetCreatedDate()}"></p>
+            <p class="date" th:text="'Posted on '"></p>
             <p class="product-details" th:text="${product.GetDescription()}"></p>
             <div class="product-state">
                 <p th:text="'State: ' + ${product.GetState().ToString()}"></p>

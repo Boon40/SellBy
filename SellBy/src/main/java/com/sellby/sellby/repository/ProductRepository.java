@@ -1,7 +1,6 @@
 package com.sellby.sellby.repository;
 
-import com.sellby.sellby.models.Product;
-import com.sellby.sellby.models.User;
+import com.sellby.sellby.model.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

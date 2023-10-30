@@ -1,7 +1,6 @@
 package com.sellby.sellby.controller;
 
-import com.sellby.sellby.models.User;
-import com.sellby.sellby.services.UserService;
+import com.sellby.sellby.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +22,7 @@ public class RegisterPageController {
         return "registerPage";
     }
 
-    @PostMapping("/register")
+    /*@PostMapping("/register")
     public String RegisterPage(
             @RequestParam("first_name") String firstName,
             @RequestParam("last_name") String lastName,
@@ -48,5 +47,5 @@ public class RegisterPageController {
             return "registerPage";
         }
         return "mainPage";
-    }
+    }*/
 }

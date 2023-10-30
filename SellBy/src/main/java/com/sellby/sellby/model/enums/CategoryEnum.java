@@ -1,4 +1,4 @@
-package com.sellby.sellby.models;
+package com.sellby.sellby.model.enums;
 
 public enum CategoryEnum {
     Art("Art"),
