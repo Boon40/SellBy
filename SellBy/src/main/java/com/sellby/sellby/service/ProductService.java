@@ -1,6 +1,7 @@
 package com.sellby.sellby.service;
 
 import com.sellby.sellby.mapper.ProductMapper;
+import com.sellby.sellby.model.entity.Comment;
 import com.sellby.sellby.model.entity.Product;
 import com.sellby.sellby.model.request.ProductRequest;
 import com.sellby.sellby.model.response.ProductResponse;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -25,8 +27,12 @@ public class ProductService {
                 .toList();
     }
 
+    public Product getProductById(int id){
+        Optional<Product> product = productRepository.findById((long) id);
+        return product.orElse(null);
+    }
+
     public ProductResponse addProduct(ProductRequest request){
-        request.setCreatedDate(LocalDate.now());
         final var product = productMapper.toEntity(request);
         final var savedProduct = productRepository.save(product);
 

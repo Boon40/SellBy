@@ -34,7 +34,7 @@ public class ProductPageService {
         }
         float averageRating = 0;
         for (Comment currentComment : allComments) {
-            averageRating += currentComment.GetRating();
+            averageRating += currentComment.getRating();
         }
 
         return averageRating/allComments.size();

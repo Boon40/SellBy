@@ -17,12 +17,7 @@ public class UserResponse {
     private String number;
     private String first_name;
     private String last_name;
-    private String password_hash;
-    private List<Product> products = new ArrayList<>();
-    private List<Comment> sendComments = new ArrayList<>();
-    private List<Comment> receivedComments = new ArrayList<>();
-    private List<Product> favouriteProducts = new ArrayList<>();
     private String country;
     private String city;
-    private String createdDate;
+    private LocalDate createdDate;
 }

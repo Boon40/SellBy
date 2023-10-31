@@ -22,8 +22,8 @@ public class CommentRequest {
     private String description;
 
     @NotNull(message = "Sender is required")
-    private User sender;
+    private int senderId;
 
     @NotNull(message = "Receiver is required")
-    private User receiver;
+    private int receiverId;
 }

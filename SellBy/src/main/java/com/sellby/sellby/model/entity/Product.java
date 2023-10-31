@@ -31,21 +31,21 @@ public class Product {
     @Column
     private float price;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "seller_id")
     private User seller;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "state_id")
     private State state;
 
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "product", fetch = FetchType.EAGER)
     private List<ProductPhoto> photos = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "favouriteProducts")
-    private List<User> users = new ArrayList<>();
+    /*@ManyToMany(mappedBy = "favouriteProducts")
+    private List<User> users = new ArrayList<>();*/
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id")
     private Category category;
 
@@ -54,6 +54,18 @@ public class Product {
 
     @Column
     private LocalDate createdDate;
+
+    public Product(String name, String description, float price, User seller, State state, Category category, boolean isBuyerPayingDelivery) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.seller = seller;
+        this.state = state;
+        this.photos = new ArrayList<>();
+        this.category = category;
+        this.isBuyerPayingDelivery = isBuyerPayingDelivery;
+        this.createdDate = LocalDate.now();
+    }
 
     public boolean getIsBuyerPayingDelivery() {
         return this.isBuyerPayingDelivery;

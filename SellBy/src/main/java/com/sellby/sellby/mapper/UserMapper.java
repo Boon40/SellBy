@@ -3,8 +3,10 @@ package com.sellby.sellby.mapper;
 import com.sellby.sellby.model.entity.Comment;
 import com.sellby.sellby.model.entity.Product;
 import com.sellby.sellby.model.entity.User;
+import com.sellby.sellby.model.request.ProductRequest;
 import com.sellby.sellby.model.request.UserRequest;
 import com.sellby.sellby.model.response.UserResponse;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
@@ -12,35 +14,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
+@RequiredArgsConstructor
 public class UserMapper {
     public UserResponse toResponse(User user){
         return new UserResponse(
-            user.GetId(),
-            user.GetEmail(),
-            user.GetNumber(),
-            user.GetFirstName(),
-            user.GetLastName(),
-            user.GetPasswordHash(),
-            user.GetProducts(),
-            user.GetSendComments(),
-            user.GetReceivedComments(),
-            user.GetFavouriteProducts(),
-            user.GetCountry(),
-            user.GetCity(),
-            user.GetCreatedDate()
+            user.getId(),
+            user.getEmail(),
+            user.getNumber(),
+            user.getFirst_name(),
+            user.getLast_name(),
+            user.getCountry(),
+            user.getCity(),
+            user.getCreatedDate()
         );
     }
 
+    //TODO fix requests
     public User toEntity(UserRequest request){
-        return new User(
-            request.getEmail(),
-            request.getNumber(),
-            request.getFirst_name(),
-            request.getLast_name(),
-            request.getPassword_hash(),
-            request.getCountry(),
-            request.getCity(),
-            request.getCreatedDate()
-        );
+        return User.builder()
+                .email(request.getEmail())
+                .number(request.getNumber())
+                .first_name(request.getFirst_name())
+                .last_name(request.getLast_name())
+                .password_hash(request.getPassword_hash())
+                .country(request.getCountry())
+                .city(request.getCity())
+                .createdDate(LocalDate.now())
+                .build();
     }
+
 }

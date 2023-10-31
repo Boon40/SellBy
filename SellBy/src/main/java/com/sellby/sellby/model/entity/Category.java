@@ -2,8 +2,14 @@ package com.sellby.sellby.model.entity;
 
 import com.sellby.sellby.model.enums.CategoryEnum;
 import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,21 +18,6 @@ public class Category {
     @Enumerated(EnumType.STRING)
     @Column(name = "category")
     private CategoryEnum category;
-
-    public Category() {}
-
-    public Category(int id, CategoryEnum category) {
-        this.id = id;
-        this.category = category;
-    }
-
-    public Category(int id) {
-        this.id = id;
-    }
-
-    public int GetId(){
-        return this.id;
-    }
 
     public String ToString(){
         return this.category.toString();

@@ -34,25 +34,16 @@ public class ProductRequest {
     private float price;
 
     @NotNull(message = "Seller is required")
-    private User seller;
+    private int sellerId;
 
-    @NotBlank(message = "State is required")
-    private State state;
+    @NotNull(message = "State is required")
+    private int stateId;
 
-    @NotEmpty(message = "At least 1 photo is required")
-    private List<ProductPhoto> photos = new ArrayList<>();
-
-    //private List<User> users = new ArrayList<>();
-
-    @NotBlank(message = "Caregory is required")
-    private Category category;
+    @NotNull(message = "Caregory is required")
+    private int categoryId;
 
     @NotNull(message = "Marking who is paying the delivery is required")
     private boolean isBuyerPayingDelivery;
-
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    private LocalDate createdDate;
-
     public boolean GetIsBuyerPayingDelivery() {
         return isBuyerPayingDelivery;
     }

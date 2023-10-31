@@ -10,6 +10,6 @@ public class CommentResponse {
     private int id;
     private int rating;
     private String description;
-    private User sender;
-    private User receiver;
+    private UserResponse sender;
+    private UserResponse receiver;
 }

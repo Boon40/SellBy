@@ -18,12 +18,13 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserController {
 
-    /*private final UserService userService;
+    private final UserService userService;
 
     @GetMapping
-    public ResponseEntity<List<UserResponse>> getAllProducts() {
+    public ResponseEntity<List<UserResponse>> getAllUsers() {
         return ResponseEntity.ok(userService.getAllUsers());
     }
+
 
     @PostMapping
     public ResponseEntity<UserResponse> registerUser(
@@ -33,7 +34,8 @@ public class UserController {
             return ResponseEntity.ok(userService.registerUser(request));
         } catch (Exception e){
             //TODO send error to front end and display it
+            System.out.println(e.getMessage());
             return null;
         }
-    }*/
+    }
 }

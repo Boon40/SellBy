@@ -20,11 +20,9 @@ public class ProductResponse {
     private String name;
     private String description;
     private float price;
-    private User seller;
-    private State state;
-    private List<ProductPhoto> photos = new ArrayList<>();
-    //private List<User> users = new ArrayList<>();
-    private Category category;
+    private UserResponse seller;
+    private StateResponse state;
+    private CategoryResponse category;
     private boolean isBuyerPayingDelivery;
     private LocalDate createdDate;
 }
