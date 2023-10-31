@@ -11,7 +11,4 @@ import java.util.List;
 @Repository
 public interface ProductPhotoRepository extends JpaRepository<ProductPhoto, Long> {
 
-    @Query("SELECT pp FROM ProductPhoto pp WHERE pp.product = ?1")
-    List<ProductPhoto> findAllPhotosOfProduct(Product product);
-
 }

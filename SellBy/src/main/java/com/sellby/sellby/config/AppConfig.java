@@ -19,7 +19,7 @@ public class AppConfig extends WebSecurityConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         http.antMatcher("/**")
                 .authorizeRequests()
-                .antMatchers("/api/v1/**")  // TODO: Remove when authentication is added
+                .antMatchers("/api/v1/**")
                 .permitAll()
                 .antMatchers("/", "/login**", "/error**")
                 .permitAll()
@@ -30,7 +30,7 @@ public class AppConfig extends WebSecurityConfigurerAdapter {
                 .deleteCookies()
                 .invalidateHttpSession(true)
                 .and()
-                .csrf().ignoringAntMatchers("/api/v1/**");   // TODO: Remove when authentication is added
+                .csrf().ignoringAntMatchers("/api/v1/**");
     }
 
     @Bean

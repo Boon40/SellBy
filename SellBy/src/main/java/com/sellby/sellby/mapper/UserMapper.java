@@ -29,7 +29,6 @@ public class UserMapper {
         );
     }
 
-    //TODO fix requests
     public User toEntity(UserRequest request){
         return User.builder()
                 .email(request.getEmail())

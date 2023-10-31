@@ -36,7 +36,6 @@ public class ProductMapper {
         );
     }
 
-    //TODO fix requests
     public Product toEntity(ProductRequest request){
         return Product.builder()
                 .name(request.getName())

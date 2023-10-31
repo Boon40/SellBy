@@ -10,7 +10,5 @@ import java.util.List;
 
 @Repository
 public interface CommentRepository extends JpaRepository<Comment, Long> {
-    @Query("SELECT c FROM Comment c WHERE c.receiver = ?1")
-    List<Comment> GetAllUserComments(User receiver);
 
 }
