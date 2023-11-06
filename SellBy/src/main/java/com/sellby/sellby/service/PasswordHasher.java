@@ -1,7 +1,9 @@
 package com.sellby.sellby.service;
 
 import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PasswordHasher {
     public PasswordHasher(){}
 

@@ -27,7 +27,12 @@ public class ProductService {
                 .toList();
     }
 
-    public Product getProductById(int id){
+    public ProductResponse getProductById(int id) throws Exception{
+        Optional<Product> product = productRepository.findById((long) id);
+        return productMapper.toResponse(product.orElseThrow());
+    }
+
+    public Product getProductEntityById(int id){
         Optional<Product> product = productRepository.findById((long) id);
         return product.orElse(null);
     }

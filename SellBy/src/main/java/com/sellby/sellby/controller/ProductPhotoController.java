@@ -24,11 +24,20 @@ public class ProductPhotoController {
         return ResponseEntity.ok(productPhotoService.getAllProductPhotos());
     }
 
+    @GetMapping("/product/{id}")
+    public ResponseEntity<List<ProductPhotoResponse>> getProductPhotos(@PathVariable String id) {
+        return ResponseEntity.ok(productPhotoService.getProductPhotos(Integer.valueOf(id)));
+    }
+
     @PostMapping
     public ResponseEntity<ProductPhotoResponse> addProductPhoto(
             @RequestBody @Valid ProductPhotoRequest request
     ) {
-        return ResponseEntity.ok(productPhotoService.addProductPhoto(request));
+        try {
+            return ResponseEntity.ok(productPhotoService.addProductPhoto(request));
+        }catch (Exception e){
+            return ResponseEntity.badRequest().build();
+        }
     }
 
     @DeleteMapping("/{id}")

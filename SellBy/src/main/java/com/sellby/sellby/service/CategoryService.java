@@ -11,13 +11,9 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class CategoryService {
     CategoryRepository categoryRepository;
-
-    @Autowired
-    CategoryService(CategoryRepository categoryRepository){
-        this.categoryRepository = categoryRepository;
-    }
 
     public Category getCategoryById(int id){
         Optional<Category> category = categoryRepository.findById((long) id);

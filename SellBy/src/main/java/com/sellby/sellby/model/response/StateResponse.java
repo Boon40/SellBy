@@ -9,4 +9,5 @@ import lombok.Data;
 public class StateResponse {
     private int id;
     private StateEnum state;
+    private String stateString;
 }

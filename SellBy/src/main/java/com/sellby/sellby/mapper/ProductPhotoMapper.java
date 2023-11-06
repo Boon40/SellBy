@@ -23,10 +23,10 @@ public class ProductPhotoMapper {
         );
     }
 
-    public ProductPhoto toEntity(ProductPhotoRequest request){
+    public ProductPhoto toEntity(ProductPhotoRequest request) throws Exception{
         return ProductPhoto.builder()
                 .path(request.getPath())
-                .product(productService.getProductById(request.getProductId()))
+                .product(productService.getProductEntityById(request.getProductId()))
                 .build();
     }
 }

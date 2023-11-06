@@ -33,4 +33,13 @@ public class ProductController {
         productService.deleteProduct(Integer.valueOf(id));
         return ResponseEntity.ok().build();
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ProductResponse> getProductById(@PathVariable String id) {
+        try {
+            return ResponseEntity.ok(productService.getProductById(Integer.valueOf(id)));
+        } catch (Exception e){
+            return ResponseEntity.badRequest().build();
+        }
+    }
 }

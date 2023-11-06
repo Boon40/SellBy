@@ -5,13 +5,16 @@ import com.sellby.sellby.mapper.CommentMapper;
 import com.sellby.sellby.mapper.ProductMapper;
 import com.sellby.sellby.model.entity.Comment;
 import com.sellby.sellby.model.entity.Product;
+import com.sellby.sellby.model.entity.ProductPhoto;
 import com.sellby.sellby.model.entity.User;
 import com.sellby.sellby.model.request.CommentRequest;
 import com.sellby.sellby.model.request.ProductRequest;
 import com.sellby.sellby.model.response.CommentResponse;
+import com.sellby.sellby.model.response.ProductPhotoResponse;
 import com.sellby.sellby.model.response.ProductResponse;
 import com.sellby.sellby.repository.CommentRepository;
 import com.sellby.sellby.repository.ProductRepository;
+import com.sellby.sellby.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +26,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class CommentService {
     private final CommentRepository commentRepository;
+    private final UserRepository userRepository;
     private final CommentMapper commentMapper;
 
     public List<CommentResponse> getAllComments(){
@@ -30,6 +34,22 @@ public class CommentService {
                 .stream()
                 .map(commentMapper::toResponse)
                 .toList();
+    }
+
+    public List<CommentResponse> getUserComments(int id){
+        return((List<Comment>) commentRepository.getUserComments(userRepository.findById((long)id).orElseThrow()))
+                .stream()
+                .map(commentMapper::toResponse)
+                .toList();
+    }
+
+    public float getAverageUserRating(int id){
+        List<Comment> comments = commentRepository.getUserComments(userRepository.findById((long) id).orElseThrow());
+        float ratingsSum = 0;
+        for (Comment comment : comments){
+            ratingsSum += comment.getRating();
+        }
+        return ratingsSum/comments.size();
     }
 
     public Comment getCommentById(int id){

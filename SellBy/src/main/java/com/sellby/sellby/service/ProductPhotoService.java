@@ -20,10 +20,18 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ProductPhotoService {
     private final ProductPhotoRepository productPhotoRepository;
+    private final ProductRepository productRepository;
     private final ProductPhotoMapper productPhotoMapper;
 
     public List<ProductPhotoResponse> getAllProductPhotos(){
         return((List<ProductPhoto>) productPhotoRepository.findAll())
+                .stream()
+                .map(productPhotoMapper::toResponse)
+                .toList();
+    }
+
+    public List<ProductPhotoResponse> getProductPhotos(int id){
+        return((List<ProductPhoto>) productPhotoRepository.getProductPhotos(productRepository.findById((long)id).orElseThrow()))
                 .stream()
                 .map(productPhotoMapper::toResponse)
                 .toList();
@@ -34,7 +42,7 @@ public class ProductPhotoService {
         return productPhoto.orElse(null);
     }
 
-    public ProductPhotoResponse addProductPhoto(ProductPhotoRequest request){
+    public ProductPhotoResponse addProductPhoto(ProductPhotoRequest request) throws Exception{
         final var productPhoto = productPhotoMapper.toEntity(request);
         final var savedProductPhoto = productPhotoRepository.save(productPhoto);
 

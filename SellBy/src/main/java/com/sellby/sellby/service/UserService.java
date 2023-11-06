@@ -8,6 +8,7 @@ import com.sellby.sellby.model.request.UserRequest;
 import com.sellby.sellby.model.response.ProductResponse;
 import com.sellby.sellby.model.response.UserResponse;
 import com.sellby.sellby.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,17 +18,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
     private final PasswordHasher passwordHasher;
-
-    @Autowired
-    public UserService(UserRepository userRepository){
-        this.userRepository = userRepository;
-        this.passwordHasher = new PasswordHasher();
-        this.userMapper = new UserMapper();
-    }
 
     public List<UserResponse> getAllUsers(){
         return ((List<User>) userRepository.findAll())

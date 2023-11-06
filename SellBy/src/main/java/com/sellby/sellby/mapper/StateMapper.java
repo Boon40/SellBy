@@ -16,7 +16,8 @@ public class StateMapper {
     public StateResponse toResponse(State state){
         return new StateResponse(
                 state.getId(),
-                state.getState()
+                state.getState(),
+                state.ToString()
         );
     }
 

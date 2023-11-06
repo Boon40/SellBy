@@ -4,6 +4,7 @@ package com.sellby.sellby.controller;
 import com.sellby.sellby.model.request.CommentRequest;
 import com.sellby.sellby.model.request.ProductRequest;
 import com.sellby.sellby.model.response.CommentResponse;
+import com.sellby.sellby.model.response.ProductPhotoResponse;
 import com.sellby.sellby.model.response.ProductResponse;
 import com.sellby.sellby.service.CommentService;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +22,11 @@ public class CommentController {
     @GetMapping
     public ResponseEntity<List<CommentResponse>> getAllComments() {
         return ResponseEntity.ok(commentService.getAllComments());
+    }
+
+    @GetMapping("/user/{id}")
+    public ResponseEntity<List<CommentResponse>> getUserComments(@PathVariable String id) {
+        return ResponseEntity.ok(commentService.getUserComments(Integer.valueOf(id)));
     }
 
     @PostMapping

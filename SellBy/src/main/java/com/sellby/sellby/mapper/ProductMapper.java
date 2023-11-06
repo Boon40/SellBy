@@ -42,7 +42,7 @@ public class ProductMapper {
                 .description(request.getDescription())
                 .price(request.getPrice())
                 .seller(userService.getUserById(request.getSellerId()))
-                .state(stateService.getStateById(request.getStateId()))
+                .state(stateService.getStateEntityById(request.getStateId()))
                 .category(categoryService.getCategoryById(request.getCategoryId()))
                 .isBuyerPayingDelivery(request.GetIsBuyerPayingDelivery())
                 .createdDate(LocalDate.now())

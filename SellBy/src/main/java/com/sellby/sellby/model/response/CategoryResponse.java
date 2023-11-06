@@ -10,4 +10,5 @@ import lombok.Data;
 public class CategoryResponse {
     private int id;
     private CategoryEnum category;
+    private String categoryString;
 }

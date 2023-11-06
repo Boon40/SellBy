@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 public class CommentMapper {
     private final UserMapper userMapper;
     private final UserService userService;
+
     public CommentResponse toResponse(Comment comment){
         return new CommentResponse(
             comment.getId(),
