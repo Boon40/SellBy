@@ -13,7 +13,7 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class CategoryService {
-    CategoryRepository categoryRepository;
+    private final CategoryRepository categoryRepository;
 
     public Category getCategoryById(int id){
         Optional<Category> category = categoryRepository.findById((long) id);
